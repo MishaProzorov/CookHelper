@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
@@ -6,6 +6,5 @@ app = FastAPI()
 def home():
     return ("Главная страница")
 
-@app.get("/food")
-def foodweb():
-    return ("Страница о еде")
+
+        
