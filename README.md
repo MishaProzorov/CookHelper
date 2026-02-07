@@ -3,7 +3,9 @@
 Наш проект представляет собой приложение по генеерации рецептов из имеющихся ингредиентов. Оно подойдет как для обычных пользователей, которые хотят приготовить что-то простенькое и быстрое, так и для 
 настоящих гурманов, стремящихся получить гастрономическое удовольствие. 
 
-<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/f3a05f03-2ac7-46fc-a304-2965f58ea169" /><img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/42568a1b-65be-421b-adf1-52d040a35868" />
+<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/f3a05f03-2ac7-46fc-a304-2965f58ea169" />  <img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/42568a1b-65be-421b-adf1-52d040a35868" />  <img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/2ef7433c-9e11-46ab-ac28-cbbf560e1a1a" />
+
+
 
 
 
