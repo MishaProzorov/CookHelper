@@ -6,5 +6,9 @@ app = FastAPI()
 def home():
     return ("Главная страница")
 
+       
 
-        
+@app.get("/food")
+def foodweb():
+    return ("Страница о еде")
+
