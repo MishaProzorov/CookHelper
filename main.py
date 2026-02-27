@@ -9,3 +9,7 @@ def get():
 # @app.get("/item")
 # def list():
 
+
+@app.get("/")
+def get():
+    return "Hellow word"
