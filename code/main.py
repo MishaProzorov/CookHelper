@@ -28,6 +28,14 @@ def get_db():
 def home(request: Request):
     return templates.TemplateResponse("head.html", {"request": request})
 
+@app.get("/about", response_class=HTMLResponse)
+def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+@app.get("/search", response_class=HTMLResponse)
+def search(request: Request):
+    return templates.TemplateResponse("search.html", {"request": request})
+
 @app.get("/registration", response_class=HTMLResponse)
 def registr(request: Request):
     return templates.TemplateResponse("registration.html", {"request": request})

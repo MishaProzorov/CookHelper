@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Главная страница{% endblock %}
-
-{% block content %}Контент главной страницы{% endblock %}
+{% block image %}
+<div class="img-container">
+    <img class="img" src="{{ url_for('static', path='img/fastfood.jpg') }}" alt="CookHelper">
+</div>
+{% endblock %}
+{% block content %}<h1>Контент главной страницы</h1>{% endblock %}

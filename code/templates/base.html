@@ -2,10 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/libs/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
         <title>{% block title %}{% endblock %} </title>
     </head>
-    <body>
-        {% block content %}{% endblock %}
+    <body> 
+        <header class="header">{% include '_header.html' %}</header>
+        {% block image %}{% endblock %}
+        <div class="page">
+            <main class="content">{% block content %}{% endblock %}</main>
+            <footer>{% include '_footer.html' %}</footer>
+        </div>
+
+        <script src="{{ url_for('static', path='js/libs/bootstrap.min.js')}}"></script>
+        <script src="{{ url_for('static', path='js/main.js')}}"></script>
+                        
     </body>
 </html> 
