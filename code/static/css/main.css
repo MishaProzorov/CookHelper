@@ -40,14 +40,41 @@ p{
 
 .img{
     width: 100%;
-    height: 400px;
+    height: 800px;
     object-fit: cover;
     object-position: center;
 }
 
 .img-container{
     width: 100%;
-    max-height: 400px;
+    max-height: 800px;
     overflow: hidden;
     margin-bottom: 20px;
+}
+
+.button_header{
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border: 2px solid transparent;
+    border-radius: 30px;           
+    transition: all 0.3s ease; 
+}
+
+.button_header.active {
+    background-color: #09b323;
+    border-color: #333;
+    color: #000;
+}
+
+
+.button_header:hover{
+    color: #000;
+    background-color: #f8f9fa;   
+    border-color: #333;          
+    transform: translateY(-2px);
 }
