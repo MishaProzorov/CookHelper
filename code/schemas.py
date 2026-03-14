@@ -1,14 +1,23 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
+from typing import Optional
+
+class UserBase(BaseModel):
+    gmail: EmailStr
 
 
-
-class UserCreate (BaseModel):
+class UserCreate (UserBase):
     password: str
-    gmail:str
+    
+class UserUpdate(BaseModel):
+    name: Optional[str] = None
+    phone: Optional[str] = None
+    weight: Optional[float] = None
+    height: Optional[float] = None
 
-class UserClass(BaseModel):
+class UserClass(UserBase):
     id: int 
-    gmail: str
+    name: Optional[str] = None
+    phone: Optional[str] = None
 
     class Config:
         from_attributes = True
