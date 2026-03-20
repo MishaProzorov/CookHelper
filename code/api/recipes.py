@@ -6,7 +6,6 @@ router = APIRouter(prefix="/recipes", tags=["Recipes"])
 # 1. Ручка для рандомных рецептов
 @router.get("/random")
 async def get_random_dishes(number: int = 3):
-    # ТВОЯ ЛОГИКА: вызываем асинхронный сервис
     res = await recipe_service.search_random_recipe(number)
     if not res:
         raise HTTPException(status_code=404, detail="Не удалось получить рецепты")
@@ -15,14 +14,12 @@ async def get_random_dishes(number: int = 3):
 # 2. Ручка для поиска по названию
 @router.get("/search")
 async def search_by_name(query: str = Query(..., min_length=3)):
-    # ТВОЯ ЛОГИКА: Query(...) делает параметр обязательным
     res = await recipe_service.search_recipe_by_name(query)
     return res
 
 # 3. Ручка для поиска по ингредиентам
 @router.get("/by-ingredients")
 async def search_by_ingredients(ingredients: str):
-    # Ожидаем строку типа "apple,milk"
     res = await recipe_service.search_by_ingredients(ingredients)
     return res
 
