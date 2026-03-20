@@ -1,5 +1,19 @@
 @import url('fonts.css');
 
+.header-custom{
+    padding: 16px 20px;
+    height: 80px;
+    z-index: 1050 !important;
+    position: sticky; 
+    top: 0;
+}
+
+/* Переопределяем центрирование для заголовков на конкретных страницах */
+.page-title {
+    text-align: left !important;
+    margin-left: -5px; /* Небольшой сдвиг влево, чтобы визуально выровнять букву "О" с текстом выше */
+}
+
 
 .page{
     overflow-x: hidden;
@@ -15,17 +29,23 @@
 
 .content{
     display: block;
-    max-width: 800px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 25px 20px;
     flex: 1 1 auto
+}
+
+h4{
+    font-weight: 300;
+    font-size: 110px;
 }
 
 h1{
     font-family: Montserrat, sans-serif;
     font-weight: 600;
-    text-align: center;  
+    /* text-align: center;   */
     margin-bottom: 30px; 
+    font-size: 128px;
 }
 
 p{
@@ -66,7 +86,7 @@ p{
 }
 
 .button_header.active {
-    background-color: #09b323;
+    background-color: #0fcd25;
     border-color: #333;
     color: #000;
 }
@@ -74,46 +94,68 @@ p{
 
 .button_header:hover{
     color: #000;
-    background-color: #f8f9fa;   
+    background-color: #52d737;   
     border-color: #333;          
     transform: translateY(-2px);
 }
 
-
-/* Текст в стиле DIN (если нет такого шрифта, Bootstrap использует стандартный жирный) */
-.fw-black {
-    font-weight: 900;
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1600px; 
+    }
 }
 
-/* Настройка слайдера */
-#heroCarousel {
-    width: 100%;
-    /* Пропорции твоей Figma: 1440 к 1024 */
-    aspect-ratio: 1440 / 1024; 
+.text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100px; 
 }
 
-#heroCarousel .carousel-item img {
+.row-spacing {
+    margin-top: 3rem !important; 
+    margin-bottom: 3rem !important;
+}
+
+.hero-banner {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 700px; 
+    overflow: hidden;
+
+    margin-top: -25px; 
+    margin-bottom: 60px;
+}
+
+
+.hero-banner img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Картинка заполнит блок, не растягиваясь */
+    object-fit: cover;
 }
 
-/* Скругление как в приложении */
-.rounded-4 {
-    border-radius: 24px !important;
+/* Затемнение картинки (Overlay), чтобы текст "горел" */
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Черный цвет с прозрачностью 30% */
 }
 
-/* Поле поиска */
-.rounded-pill {
-    border-radius: 50px !important;
-}
-
-/* Адаптация для мобилок: текст сверху, слайдер снизу */
-@media (max-width: 991px) {
-    .display-4 {
-        font-size: 2rem;
-    }
-    .h4 {
-        font-size: 1.2rem;
-    }
+/* Текст поверх */
+.hero-banner-text {
+    position: absolute;
+    font-family: AlfaSlabOne, sans-serif;
+    line-height: 0.65;
+    top: 25%; /* Центр по вертикали */
+    right: 8%; /* Отступ справа (как на скрине) */
+    transform: translateY(-50%); /* Точное выравнивание по центру */
+    z-index: 2; /* Чтобы текст был выше затемнения */
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Тень для текста */
 }

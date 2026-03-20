@@ -1,4 +1,4 @@
-<header class="p-3 border-bottom bg-white sticky-top">
+<header class="header-custom border-bottom bg-black sticky-top">
     <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
 
@@ -10,10 +10,10 @@
                 </a>
 
                 <ul class="nav me-auto mb-2 mb-lg-0 justify-content-center">
-                    <li><a href="{{ url_for('home') }}" class="button_header {% if active == 'home' %}active{% endif %}">Home</a></li>
-                    <li><a href="{{ url_for('search') }}" class="button_header {% if active == 'search' %}active{% endif %}">Search</a></li>
-                    <li><a href="{{ url_for('about') }}" class="button_header {% if active == 'about' %}active{% endif %}">About</a></li>
-                    <li><a href="{{ url_for('help') }}" class="button_header {% if active == 'help' %}active{% endif %}">Help</a></li>
+                    <li><a href="{{ url_for('home') }}" class="button_header {% if active == 'home' %}active{% endif %}" style="color: white">Home</a></li>
+                    <li><a href="{{ url_for('search') }}" class="button_header {% if active == 'search' %}active{% endif %}" style="color: white">Search</a></li>
+                    <li><a href="{{ url_for('about') }}" class="button_header {% if active == 'about' %}active{% endif %}" style="color: white">About</a></li>
+                    <li><a href="{{ url_for('help') }}" class="button_header {% if active == 'help' %}active{% endif %}" style="color: white">Help</a></li>
                 </ul>
             </div>
 

@@ -14,5 +14,11 @@
     src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
+@font-face {
+    font-family: 'AlfaSlabOne';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/alfaslabone/AlfaSlabOne-Regular.ttf');
+}
 
 
