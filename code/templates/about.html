@@ -4,10 +4,66 @@
 
 
 {% block content %}
-<div class="text-start container-fluid px-lg-5">
-    <div class="mb-5">
-        <p class="h3 fw-normal mb-0 page-title" style="letter-spacing: 2px;">страница</p>
-        <h1 class="display-1 fw-bold page-title">О НАС</h1>
+
+<!-- Убираем align-items-center, если хотим, чтобы текст был сверху, а не в середине экрана -->
+<div class="row align-items-center">
+    <!-- Увеличиваем колонку до 12, чтобы тексту было просторно -->
+    <div class="col-lg-6 text-start page-title">
+        <h3 class="page-about-low mb-0">страница о</h3>
+        <h1 class="page-about-mega mt-1">НАС</h1>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row">
+    <h3 class="page-about-mini">Cook Helper</h3>
+    <p> - это учебный веб‑проект, созданный в рамках практики по веб‑разработке. Приложение разрабатывалось как тренировка в работе с 
+        современными технологиями: серверной логикой, базами данных, пользовательским интерфейсом и интеграцией внешних сервисов. 
+        Проект служит площадкой для отработки архитектурных решений, построения удобной структуры страниц, настройки поиска и обработки данных. 
+        CookHelper не претендует на коммерческое использование — его цель показать, как учебная идея может превратиться в 
+        полноценное, аккуратно оформленное веб‑приложение.
+    </p>
+</div>
+<div class="row align-items-center g-4 my-5">
+    <div class="col-lg-4">
+        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+            <img src="{{ url_for('static', path='img/meaning.png') }}" class="img-fluid w-100 about-img" alt="Meaning">
+            <div class="card-label">Отзывы</div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+            <img src="{{ url_for('static', path='img/developer.jpg') }}" class="img-fluid w-100 about-img" alt="Developers">
+            <div class="card-label">Разработчики</div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden bg-light d-flex align-items-center justify-content-center">
+             <span class="text-muted h1">+</span>
+        </div>
+    </div>
+</div>
+<div class="row align-items-center my-5">
+    <h3 class="page-about-mini">Где нас можно найти?</h3>
+    <p> Мы размещаем наш контент и развиваемся на разных популярных платформах, 
+        постепенно расширяя присутствие проекта и пробуя новые форматы 
+        взаимодействия с пользователями. Это помогает нам экспериментировать, 
+        получать обратную связь и улучшать приложение в процессе обучения и развития.
+    </p>
+</div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-4">
+        <img src="{{ url_for('static', path='img/telegram.png') }}" class="about-png mx-auto">
+        
+    </div>
+    <div class="col-lg-4">
+        <img src="{{ url_for('static', path='img/instagram.png') }}" class="about-png mx-auto">
+        
+    </div>
+    <div class="col-lg-4">
+        <img src="{{ url_for('static', path='img/youtube.png') }}" class="about-png mx-auto">
+        
     </div>
 </div>
 

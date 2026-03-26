@@ -2,4 +2,84 @@
 
 {% block title %}Помощь{% endblock %}
 
-{% block content %}<h1>Помощь и Поддержка</h1>{% endblock %}
+{% block content %}
+<div class="row align-items-center">
+    <h1 class="page-help-mega">Помощь и Поддержка</h1>
+</div>
+<div class="line"></div>
+<div class="row">
+    <div class="col-lg-9">
+        <h3 class="page-help-low mb-5">Популярные вопросы</h3>
+        <div class="row align-items-center col pad">
+            <div class="col-lg-1 icons m">
+                <img src="{{ url_for('static', path='img/loupe.png') }}">
+            </div>
+            <div class="col-lg-11">
+                <h3 class="page-about-mini">Не ищет рецепт - что делать?</h3>
+                <p>Для решения этой проблемы проверьте, правильно ли введено название блюда или ингредиента. 
+                    Если проблема не в этом, то попробуйте проверить интернет соединение, возможно у вас просто 
+                    плохой интернет
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center pad">
+            <div class="col-lg-1 icons m">
+                <img src="{{ url_for('static', path='img/sandclock.png') }}">
+            </div>
+            <div class="col-lg-11">
+                <h3 class="page-about-mini">Поиск работает слишком долго</h3>
+                <p>Главной причиной данной проблемы является слабое или нестабильное интернет соединение. Проверьте ваше подключение к сети,
+                    перезагрузите страницу и попробуйте запустить еще раз поиск, проблема должна исчезнуть
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center col pad">
+            <div class="col-lg-1 icons m">
+                <img src="{{ url_for('static', path='img/docs.png') }}">
+            </div>
+            <div class="col-lg-11">
+                <h3 class="page-about-mini">Ничего не найдено по запросу</h3>
+                <p>Проверьте корректность введнного текста, уберите лишние пробелы или отсупы, вохможно посторонние символы. Если 
+                    запрос корректен, то попробуйте изменить формулировку или изменить ингредиенты
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center pad">
+            <div class="col-lg-1 icons m">
+                <img src="{{ url_for('static', path='img/puzzle.png') }}">
+            </div>
+            <div class="col-lg-11">
+                <h3 class="page-about-mini">Картинка сайта не загружается</h3>
+                <p>Данная проблема связана со слабым инетрнет соединением. Попробуйте преезагрузить страницу или проверьте подкоючение к интернету.
+                    Если не помогает, то попробуйте открыть сайт в другом браузере, вохможно проблема на стороне сервера
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center col pad">
+            <div class="col-lg-1 icons m">
+                <img src="{{ url_for('static', path='img/mouse.png') }}">
+            </div>
+            <div class="col-lg-11">
+                <h3 class="page-about-mini">Кнопка или ссылка не нажимается - как исправить?</h3>
+                <p>Проверьте, не влияет ли блокировщик рекламы на работу приложения. Отключите его и попробуйте
+                    зайти на страницу еще раз. Проверьте подключение к сети, если ервый способ не помог решить проблему
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 d-flex justify-content-center flex-column align-items-center">
+        <h3 class="page-about-mini pad">Свяжитесь с нами</h3>
+        <p class="pad">Если возникшую проблему решить не представляется возможным самостоятельно, или проблема
+            для проблемы не указано решение, то свяжитесь с нами и мы вам поможем
+        </p>
+        <a href="https://t.me/prozorov_misha" target="_blank" class="bot-card-container">
+            <img src="{{ url_for('static', path='img/chatbot.png') }}" class="bot-card-img" alt="Support">
+            <div class="bot-card-overlay"></div>
+            <p class="bot-card-label">Написать в поддержку</p>
+        </a>
+    </div>
+    
+</div>
+<div class="line mt-5"></div>
+
+{% endblock %}

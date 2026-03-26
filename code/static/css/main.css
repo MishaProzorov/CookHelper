@@ -1,19 +1,104 @@
 @import url('fonts.css');
 
+.custom-search {
+    background-color: #222 !important; /* Чуть светлее черного, чтобы был контраст */
+    color: #fff !important;
+    border: 1px solid #444 !important;
+}
+
+/* Профиль */
+.profile-wrapper {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 2px;
+    background: linear-gradient(45deg, #0fcd25, #52d737); /* Рамка-градиент */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #fffafa;
+}
+
+.profile-wrapper:hover {
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(15, 205, 37, 0.5);
+}
+
+/* Кнопка выхода */
+.btn-exit-custom {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #ff4d4d;
+    padding: 4px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-exit-custom:hover {
+    background-color: #ff4d4d;
+    color: white;
+}
+
 .header-custom{
-    padding: 16px 20px;
+    padding: 0 20px; /* Убрал вертикальный паддинг, так как есть фиксированная высота */
     height: 80px;
-    z-index: 1050 !important;
-    position: sticky; 
-    top: 0;
+    display: flex;
+    align-items: center;
+    border-color: #222 !important; /* Более мягкая граница на черном */
 }
 
-/* Переопределяем центрирование для заголовков на конкретных страницах */
-.page-title {
+.page-help-mega{
     text-align: left !important;
-    margin-left: -5px; /* Небольшой сдвиг влево, чтобы визуально выровнять букву "О" с текстом выше */
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 600;
+    font-size: 60px;
 }
 
+.page-help-low{
+    text-align: left !important;
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.line{
+    max-width: 100%; /* Линия не будет шире экрана */
+    border-top: 1px solid rgb(0, 0, 0);
+    margin: 20px 0 50px 0;
+
+}
+
+.page-about-mega{
+    text-align: left !important;
+    margin-left: -10px; 
+    line-height: 0.85;
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 800;
+    font-size: 180px;
+    margin-bottom: 40px;
+}
+
+.page-about-low{
+    text-align: left !important;
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+}
+.page-about-mini{
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
 
 .page{
     overflow-x: hidden;
@@ -29,7 +114,8 @@
 
 .content{
     display: block;
-    max-width: 1600px;
+    width: 100%;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 25px 20px;
     flex: 1 1 auto
@@ -43,7 +129,6 @@ h4{
 h1{
     font-family: Montserrat, sans-serif;
     font-weight: 600;
-    /* text-align: center;   */
     margin-bottom: 30px; 
     font-size: 128px;
 }
@@ -72,23 +157,22 @@ p{
     margin-bottom: 20px;
 }
 
-.button_header{
+.button_header {
     display: inline-block;
-    padding: 8px 20px;
-    margin: 0 5px;
+    padding: 8px 22px;
     text-decoration: none;
-    color: #333;
+    color: #ffffff !important; /* Принудительно белый */
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    border: 2px solid transparent;
-    border-radius: 30px;           
-    transition: all 0.3s ease; 
+    font-size: 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
 .button_header.active {
     background-color: #0fcd25;
-    border-color: #333;
-    color: #000;
+    color: #000000 !important; /* Черный текст на зеленом фоне */
+    box-shadow: 0 4px 15px rgba(15, 205, 37, 0.4);
 }
 
 
@@ -126,7 +210,6 @@ p{
     margin-right: -50vw;
     height: 700px; 
     overflow: hidden;
-
     margin-top: -25px; 
     margin-bottom: 60px;
 }
@@ -148,14 +231,187 @@ p{
 }
 
 /* Текст поверх */
+.hero-title{
+    font-family: AlfaSlabOne, sans-serif;
+    color: white;
+    font-size: 110px;
+    font-weight: 300;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    line-height: 0.65;
+}
+
+.about-card-wrapper {
+    position: relative;
+    height: 400px;
+    background-color: #eee;
+    transition: transform 0.3s ease;
+}
+
+.about-card-wrapper:hover {
+    transform: translateY(-10px); 
+}
+
+.about-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+}
+
+.card-label {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
+    z-index: 2;
+}
+.card-label-max {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
+    z-index: 5;
+}
+
+.about-card-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    z-index: 1;
+}
 .hero-banner-text {
     position: absolute;
-    font-family: AlfaSlabOne, sans-serif;
-    line-height: 0.65;
-    top: 25%; /* Центр по вертикали */
-    right: 8%; /* Отступ справа (как на скрине) */
-    transform: translateY(-50%); /* Точное выравнивание по центру */
-    z-index: 2; /* Чтобы текст был выше затемнения */
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Тень для текста */
+    top: 25%; 
+    right: 8%; 
+    transform: translateY(-50%); 
+    z-index: 2; 
 }
+
+.bot-card-container {
+    position: relative;
+    width: 320px; /* Фиксированная ширина, чтобы не растягивалось */
+    border-radius: 24px; /* Красивое скругление углов */
+    overflow: hidden; /* Чтобы картинка и градиент не вылезали за углы */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Мягкая тень блока */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность для прыжка */
+    cursor: pointer;
+    background-color: #fff; /* Белый фон вместо серого */
+    line-height: 0; /* Убирает лишние отступы под картинкой */
+}
+
+.bot-card-container:hover {
+    transform: translateY(-12px); /* Прыжок вверх */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25); /* Усиление тени при парении */
+}
+
+.bot-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.bot-card-container:hover .bot-card-img {
+    filter: brightness(1); /* При наведении картинка становится чуть ярче */
+}
+
+.bot-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%; /* Градиент занимает нижнюю половину */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bot-card-label {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тень для текста */
+    margin: 0;
+}
+.about-png{
+    display: flex;
+    width:350px;
+    height: 170px;
+    border-radius: 30px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Мягкая тень блока */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность для прыжка */
+    cursor: pointer;
+    background-color: #fff; /* Белый фон вместо серого */
+    line-height: 0;
+}
+.about-png:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    color: #000; /* Текст становится чуть темнее при наведении */
+}
+.icons {
+    display: flex;
+    align-items: center;    /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;      /* Немного увеличил радиус для мягкости */
+           /* Чтобы иконка не сплющивалась, если текста много */
+}
+
+.icons img {
+    width: 35px;             /* Размер самой иконки внутри (лучше не делать 45, чтобы был отступ) */
+    height: 35px;
+    object-fit: contain;     /* Сохраняет пропорции */
+}
+.col{
+    background-color: #e5e3e3;
+}
+.pad{
+    padding: 10px;
+}
+.m{
+    margin-right: 10px;
+}
+
+.logo-img {
+    width: 45px; /* Немного увеличил */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-img {
+    transform: scale(1.1);
+}
+.marg{
+
+    border-radius: 24px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); 
+    position: relative;
+    overflow: hidden; 
+    background-color: #fff;
+}
+.marg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+

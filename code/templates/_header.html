@@ -1,38 +1,40 @@
 <header class="header-custom border-bottom bg-black sticky-top">
-    <div class="container-fluid">
-        <div class="d-flex flex-wrap align-items-center justify-content-between">
+    <div class="container-fluid px-lg-5"> <!-- Добавил боковые отступы для простора -->
+        <div class="d-flex align-items-center justify-content-between">
 
+            <!-- ЛЕВАЯ ЧАСТЬ: Лого и Навигация -->
             <div class="d-flex align-items-center">
-                <a href="/" class="d-flex align-items-center me-4 link-body-emphasis text-decoration-none">
-                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
+                <a href="/" class="logo-link me-4">
+                    <img src="{{ url_for('static', path='img/logo.svg') }}" class="logo-img" alt="Logo">
                 </a>
 
-                <ul class="nav me-auto mb-2 mb-lg-0 justify-content-center">
-                    <li><a href="{{ url_for('home') }}" class="button_header {% if active == 'home' %}active{% endif %}" style="color: white">Home</a></li>
-                    <li><a href="{{ url_for('search') }}" class="button_header {% if active == 'search' %}active{% endif %}" style="color: white">Search</a></li>
-                    <li><a href="{{ url_for('about') }}" class="button_header {% if active == 'about' %}active{% endif %}" style="color: white">About</a></li>
-                    <li><a href="{{ url_for('help') }}" class="button_header {% if active == 'help' %}active{% endif %}" style="color: white">Help</a></li>
+                <ul class="nav gap-2 d-none d-md-flex align-items-center">
+                    <li><a href="{{ url_for('home') }}" class="button_header {% if active == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ url_for('search') }}" class="button_header {% if active == 'search' %}active{% endif %}">Search</a></li>
+                    <li><a href="{{ url_for('about') }}" class="button_header {% if active == 'about' %}active{% endif %}">About</a></li>
+                    <li><a href="{{ url_for('help') }}" class="button_header {% if active == 'help' %}active{% endif %}">Help</a></li>
                 </ul>
             </div>
 
-           
-            <div class="d-flex align-items-center">
-                <form class="me-3" role="search">
-                    <input type="search" class="form-control form-control-sm" placeholder="Search..." aria-label="Search">
+            <!-- ПРАВАЯ ЧАСТЬ: Поиск и Профиль -->
+            <div class="d-flex align-items-center gap-3">
+                <form role="search" class="d-none d-sm-block">
+                    <input type="search" class="form-control form-control-sm text-white" placeholder="Search..." aria-label="Search">
                 </form>
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center profile-section">
                     {% if user %}
-                        
-                        <span class="me-2 text-muted small d-none d-lg-inline">{{ user.gmail }}</span>
-                        <img src="{{ url_for('static', path='img/profile.png') }}" width="32" height="32" class="rounded-circle border me-2">
-                        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Exit</a>
+                        <div class="d-flex flex-column align-items-end me-3 d-none d-lg-flex">
+                            <span class="text-white-50 small" style="font-size: 10px; line-height: 1;">Logged in as</span>
+                            <span class="text-white small fw-bold">{{ user.gmail }}</span>
+                        </div>
+                        <div class="profile-wrapper me-3">
+                            <img src="{{ url_for('static', path='img/profile.png') }}" class="profile-avatar">
+                        </div>
+                        <a href="{{ url_for('logout') }}" class="btn-exit-custom">Exit</a>
                     {% else %}
-                        
-                        <a href="{{ url_for('login') }}" class="text-decoration-none">
-                            <img src="{{ url_for('static', path='img/profile.png') }}" width="32" height="32" class="rounded-circle border">
+                        <a href="{{ url_for('login') }}" class="profile-wrapper link-light">
+                            <img src="{{ url_for('static', path='img/profile.png') }}" class="profile-avatar">
                         </a>
                     {% endif %}
                 </div>
