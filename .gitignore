@@ -1,0 +1,15 @@
+# Created by pytest automatically.
+# Тяжелые установщики
+*.exe
+*.msi
+
+# Файлы окружения с токенами (ОБЯЗАТЕЛЬНО)
+.env
+
+# Мусор Python
+__pycache__/
+*.pyc
+
+# Виртуальное окружение
+venv/
+.venv/

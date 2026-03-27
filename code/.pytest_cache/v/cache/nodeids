@@ -1,0 +1,19 @@
+[
+  "tests/test_misha.py::test_create_user_db_logic",
+  "tests/test_misha.py::test_delete_user_logic",
+  "tests/test_misha.py::test_pages_availability[/]",
+  "tests/test_misha.py::test_pages_availability[/about]",
+  "tests/test_misha.py::test_pages_availability[/help]",
+  "tests/test_misha.py::test_pages_availability[/search]",
+  "tests/test_misha.py::test_user_model_fields",
+  "tests/test_nikita.py::test_get_random",
+  "tests/test_nikita.py::test_search_recipe",
+  "tests/user_service.py::TestCurrentUser::test_invalid_token_returns_none",
+  "tests/user_service.py::TestCurrentUser::test_no_token_returns_none",
+  "tests/user_service.py::TestCurrentUser::test_token_with_nonexistent_user_returns_none",
+  "tests/user_service.py::TestCurrentUser::test_valid_token_returns_user",
+  "tests/user_service.py::TestDeleteUser::test_delete_existing_user",
+  "tests/user_service.py::TestDeleteUser::test_delete_nonexistent_user_raises_404",
+  "tests/user_service.py::TestGetUserByGmail::test_find_existing_user_by_gmail",
+  "tests/user_service.py::TestGetUserByGmail::test_nonexistent_gmail_returns_none"
+]
