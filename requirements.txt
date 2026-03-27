@@ -8,3 +8,4 @@ authx
 bcrypt
 httpx
 pytest
+pytest-asyncio

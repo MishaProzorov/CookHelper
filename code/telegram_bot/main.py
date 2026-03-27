@@ -7,8 +7,8 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from dotenv import load_dotenv
 
-from keyboards import main_menu, search_menu, profile_menu, cancel_menu, recipe_actions
-from utils import format_recipe_card
+from telegram_bot.keyboards import main_menu, search_menu, profile_menu, cancel_menu, recipe_actions
+from telegram_bot.utils import format_recipe_card
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from services.recipe_service import search_random_recipe, search_recipe_by_name, search_by_ingredients, get_recipe_info
