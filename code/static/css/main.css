@@ -1,7 +1,7 @@
 @import url('fonts.css');
 
 .custom-search {
-    background-color: #222 !important; /* Чуть светлее черного, чтобы был контраст */
+    background-color: #222 !important;
     color: #fff !important;
     border: 1px solid #444 !important;
 }
@@ -50,7 +50,7 @@
 }
 
 .header-custom{
-    padding: 0 20px; /* Убрал вертикальный паддинг, так как есть фиксированная высота */
+    padding: 0 20px;
     height: 80px;
     display: flex;
     align-items: center;
@@ -387,7 +387,10 @@ p{
     object-fit: contain;     /* Сохраняет пропорции */
 }
 .col{
-    background-color: #e5e3e3;
+    background-color: #e4e4e4;
+}
+.col1{
+    background-color: #c5c5c5;
 }
 .pad{
     padding: 10px;
@@ -473,7 +476,6 @@ p{
     left: 0;
     width: 100%; 
     height: 100%; /* Сделаем чуть выше для мягкости */
-    /* Черный прозрачный переходит в прозрачный */
     background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%);
     z-index: 3;
     pointer-events: none;
@@ -481,4 +483,173 @@ p{
 
 .card-wrapper:hover {
     transform: translateY(-10px);
+}
+
+.height {
+    height: 600px; /* Уменьшил с 780 для удобства, можете вернуть свой размер */
+    position: relative;
+    border-radius: 20px; /* Закругляем углы родителю */
+    overflow: hidden;    /* Обрезаем всё, что выходит за рамки углов */
+}
+
+/* Применяем object-fit именно к картинке! */
+.height img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Теперь картинка заполнит всё пространство 780px */
+    display: block;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Затемнение */
+    display: flex;
+    align-items: center;    /* Центрируем будущий текст */
+    justify-content: center;
+}
+.hero-title3{
+    font-family: AlfaSlabOne, sans-serif;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    text-align: right;
+    font-size: 94px;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    line-height: 1.1;
+}
+
+
+.accent-word {
+    color: #000000; /* Золотистый цвет */
+    font-weight: bold;
+    /* Можно добавить небольшое свечение */
+    /* text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); */
+}
+
+.fixed-img {
+    width: 100%;        /* Занимает всю ширину колонки col-lg-5 */
+    height: 500px;      /* Твоя фиксированная высота */
+    object-fit: cover;  /* ГЛАВНОЕ: картинка заполняет блок без искажений */
+    object-position: center;
+}
+
+.clr{
+    background-color: #dddddd;
+}
+
+.button_michelin {
+    display: inline-block;
+    padding: 8px 22px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 30px;
+    background-color: #d7d7d4;
+    color:#000000;
+    border: 2px solid #000000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+}
+
+
+.button_michelin:hover{
+    color: #000;
+    background-color: #e8c01d;
+    border-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Статистика на странице помощи */
+.statistics-card {
+    background: linear-gradient(145deg, #dadada, #f0f0f0);
+    border: 1px solid #444;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.statistics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 20%);
+    border-color: #000000;
+}
+
+.statistics-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgb(0 0 0 / 30%));
+}
+
+.statistics-icon-emoji {
+    font-size: 60px;
+    line-height: 1;
+    margin: 10px 0;
+    filter: drop-shadow(0 4px 8px rgb(0 0 0 / 30%));
+}
+
+.statistics-number {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin: 10px 0;
+}
+
+.statistics-status {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.status-online {
+    background: linear-gradient(45deg, #00ff00, #55ff00);
+    color: #000;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 40%);
+}
+
+.status-offline {
+    background: linear-gradient(45deg, #ff4d4d, #ff6b6b);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+
+.button_menu {
+    position: absolute; /* Кнопка «отрывается» от текста и летит по координатам */
+    bottom: 60px;       /* Отступ снизу */
+    right: 50px;        /* Отступ справа */
+    display: inline-block;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color:#000000;
+    border: 2px solid #000000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;      /* Кнопка будет выше всех слоев */
+}
+
+.button_menu:hover{
+    color: #000;
+    background-color: #dbdbdb;   
+    border-color: #333;     
+    transform: translateY(-2px);
 }

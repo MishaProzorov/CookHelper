@@ -71,23 +71,94 @@
             </div>
         </div>
         <div class="col-lg-3 mb-4 mb-lg-0">
-            <div class="marg h-100 d-flex card-wrapper">
-                <img src="{{ url_for('static', path='img/mishelin.webp') }}" class="farousel">      
-            </div>
+            <a href="{{ url_for('michelin') }}" >
+                <div class="marg h-100 d-flex card-wrapper">
+                    <img src="{{ url_for('static', path='img/mishelin.webp') }}" class="farousel">
+                        
+                </div>
+            </a>
         </div>
     </div> 
 
     <!-- Нижние блоки (раздвигаем их) -->
     <div class="row align-items-center gx-5 row-spacing">
         <div class="col-lg-12">
-            <h2 class="display-6 text-center text-muted">GGG</h2>
+            <h2 class="display-6 text-center text-head-max">БЛЮДА НЕДЕЛИ</h2>
         </div>
     </div>
 
-    <div class="row align-items-center gx-5 row-spacing mb-5">
-        <div class="col-lg-12">
-            <h2 class="display-6 text-center text-muted">GGGGDGDGDGGDGDGDGGDGD</h2>
+    <div id="mainSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <!-- Индикаторы (точки внизу) -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="4"></button>
         </div>
+
+        <div class="carousel-inner">
+         <!-- Слайд 1 -->
+            <div class="carousel-item active">
+                <div class="height">
+                    <img src="{{ url_for('static', path='img/pizza.png') }}">
+                    <div class="shadow">
+                        <h1 class="hero-title3"> ИТАЛЬЯНСКАЯ<br>ПИЦЦА</h1>
+                        <a href="{{ url_for('search') }}" class="button_menu {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+                    </div>                   
+                </div>
+            </div>
+
+            <!-- Слайд 2 -->
+            <div class="carousel-item active">
+                <div class="height">
+                    <img src="{{ url_for('static', path='img/ice(home).png') }}">
+                    <div class="shadow">
+                        <h1 class="hero-title3"> ЯГОДНОЕ<br>МОРОЖЕНОЕ</h1>
+                        <a href="{{ url_for('search') }}" class="button_menu {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+                    </div>                   
+                </div>
+            </div>
+            <!--Слайд 3-->
+            <div class="carousel-item active">
+                <div class="height">
+                    <img src="{{ url_for('static', path='img/lsanya.png') }}">
+                    <div class="shadow">
+                        <h1 class="hero-title3"> ЛАЗАНЬЯ</h1>
+                        <a href="{{ url_for('search') }}" class="button_menu {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+                    </div>                   
+                </div>
+            </div>
+            <!--Слайд 4-->
+            <div class="carousel-item active">
+                <div class="height">
+                    <img src="{{ url_for('static', path='img/cheesesoup.png') }}">
+                    <div class="shadow">
+                        <h1 class="hero-title3"> СЫРНЫЙ СУП<br>С КОПЧЕНОСТЯМИ</h1>
+                        <a href="{{ url_for('search') }}" class="button_menu {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+                    </div>                   
+                </div>
+            </div>
+            <!--Слайд 5-->
+             <div class="carousel-item active">
+                <div class="height">
+                    <img src="{{ url_for('static', path='img/rice.png') }}">
+                    <div class="shadow">
+                        <h1 class="hero-title3">РИС С <br> КУРИЦЕЙ</h1>
+                        <a href="{{ url_for('search') }}" class="button_menu {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
     </div>
 </div>
 {% endblock %}

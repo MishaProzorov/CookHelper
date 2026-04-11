@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}Блюда от поваров Michelin{% endblock %}
+
+{% block content %}
+
+<div class="row align-items-center">
+    <div class="text-head-max">КУЛИНАРНЫЕ ШЕДЕВРЫ</div>
+    <div class="text-head-min">ОТ ПОВАРОВ <span class="accent-word">MICHELIN</span></div>
+     
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-8">
+        <h1 
+            class="text-head-max">АЛЕН ДЮКАСС
+            <img src="{{ url_for('static', path='img/star20.png') }}">
+        </h1>
+        
+        <p>Ален Дюкасс — французский повар, ресторатор и предприниматель. 
+            Владелец сети ресторанов высокой кухни Alain Ducasse Enterprise с годовой выручкой в $60 млн, 
+            в которую входят 26 ресторанов в различных городах мира. 
+            Дюкасс также является одним из двух шеф-поваров, удостоенных 21 звезды Мишлен за свою карьеру.
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Cookpot</h3>
+        <p>Пожалуй, самое известное современное творение Дюкасса. 
+            Это овощное рагу из семи сезонных овощей, 
+            которые медленно томятся в специальной фарфоровой кастрюле, дизайн которой разработал сам шеф. 
+        </p>
+        <br>
+        <br>
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+    <div class="col-lg-4 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin1.png') }}" class="flexed-img">
+    </div>
+
+</div>
+<div class="line"></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-4 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin2.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h1 
+            class="text-head-max">ГОРДОН РАМЗИ
+            <img src="{{ url_for('static', path='img/star6.png') }}">
+        </h1>
+        
+        <p>Гордон Рамзи — знаменитый британский шеф-повар, ресторатор и телеведущий, 
+            известный своим перфекционизмом и жестким стилем управления. 
+            Обладатель нескольких звезд Мишлен (всего было до 16, сейчас меньше), 
+            наиболее известен по шоу «Адская кухня», «Кошмары на кухне» и MasterChef.
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Говядина "Веллингтон"</h3>
+        <p>Блюдо представляет собой говяжью вырезку, покрытую слоем грибного дюкселя 
+            (мелко нарезанные и обжаренные грибы) и пармской ветчиной (прошутто),
+             завернутую в слоеное тесто и запеченную до золотистой корочки. 
+            Секрет Рамзи заключается в идеальной прожарке мяса medium rare и хрустящем тесте без лишней влаги. 
+        </p>
+        <br>
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-6">
+        <h1 
+            class="text-head-max">ЖОЭЛЬ РОБЮШОН
+            <img src="{{ url_for('static', path='img/star26.png') }}">
+        </h1>
+        
+        <p>Жоээль Робюшоон — французский шеф-повар и ресторатор. Видный представитель «новой кухни», автор кулинарных книг, 
+            основатель сети ресторанов для гурманов. Председатель гастрономического комитета энциклопедии Larousse gastronomique.  
+            Его рестораны известны своей точной техникой приготовления и изысканными, но простыми вкусами.
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Пюре Робюшона</h3>
+        <p>Самое знаменитое фирменное блюдо Жоэля Робюшона — легендарное картофельное пюре (Puree de pommes de terre). 
+            Оно прославилось своей невероятной шелковистой текстурой и необычно высоким содержанием сливочного масла.
+        </p>
+    
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+    <div class="col-lg-6 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin3.png') }}" class="flexed-img">
+    </div>
+
+</div>
+<div class="line"></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-6 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin4.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-6">
+        <h1 
+            class="text-head-max">ПОЛЬ БЮКОЗ
+            <img src="{{ url_for('static', path='img/star3.png') }}">
+        </h1>
+        
+        <p>Поль Бокюз — легендарный французский повар и ресторатор, шеф XX столетия. 
+            Он стоял у истоков «новой кухни», отличающейся лёгкостью и свежими продуктами, 
+            основал международный кулинарный конкурс Bocuse d’Or, а его ресторан LʼAuberge du Pont de Collonges с 
+            1965 года ежегодно получает по три звезды Michelin.
+            «Открытая кухня» собрала цитаты о работе и жизни от известного шефа
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Суп из черного трюфеля VGE</h3>
+        <p>Самым известным фирменным блюдом Поля Бокюза 
+            является суп из черного трюфеля VGE (Soupe aux truffes noires VGE), 
+            созданный в 1975 году для президента Франции. Этот изысканный суп подается под 
+            «шапкой» из слоеного теста. 
+        </p>
+        <br>
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-7">
+        <h1 
+            class="text-head-max">МАРКО ПЬЕР УАЙТ
+            <img src="{{ url_for('static', path='img/star3.png') }}">
+        </h1>
+        
+        <p>Марко Пьер Уайт — английский шеф-повар, ресторатор и телеведущий. 
+            В 1995 году Уайт стал первым британским шеф-поваром и, в возрасте 33 лет, 
+            самым молодым шеф-поваром, получившим три звезды Мишлен.
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Талятелле с устрицами и икрой</h3>
+        <p>У Марко Пьера Уайта есть несколько легендарных блюд, которые считаются его «визитными карточками». 
+            Самым известным и часто упоминаемым является Тальятелле с устрицами и икрой.
+            Это изысканное блюдо высокой кухни, 
+            сочетающее нежную текстуру пасты, морскую свежесть моллюсков и 
+            солоноватый вкус деликатесной икры.
+        </p>
+        <br>
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+    <div class="col-lg-5 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin5.png') }}" class="flexed-img">
+    </div>
+</div>
+<div class="line "></div>
+<div class="row align-items-center col mb-5">
+    <div class="col-lg-6 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/michelin6.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-6">
+        <h1 
+            class="text-head-max">ТОМАС КЕЛЛЕР
+            <img src="{{ url_for('static', path='img/star6.png') }}">
+        </h1>
+        <p>Томас Келлер — американский повар, ресторатор, автор книг по кулинарии, предприниматель, 
+            популяризатор французской кухни. Владеет знаменитым рестораном французской кухни 
+            «Французская прачечная» в городе Яунтвилле, расположенном в долине Напа в штате Калифорния.
+        </p>
+        <div class="line my-4"></div>
+        <h3 class="page-about-mini">Устрицы и жемчуг</h3>
+        <p>Вероятно, самое узнаваемое блюдо Келлера. Это десертная ложка «сабайона» из жемчужной крупы (тапиоки), 
+            дополненная двумя пашот-устрицами и щедрой порцией осетровой икры.
+        </p>
+        <br>
+        <a href="{{ url_for('search') }}" class="button_michelin {% if active == 'search' %}active{% endif %}">Перейти к рецепту</a>
+    </div>
+</div>
+{% endblock %}

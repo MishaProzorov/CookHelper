@@ -81,5 +81,95 @@
     
 </div>
 <div class="line mt-5"></div>
+<h3 class="page-help-low mb-5">Статус сервиса</h3>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row mb-4">
+            <div class="col-lg-4 mb-3">
+                <div class="card statistics-card">
+                    <div class="card-body text-center">
+                        <div class="statistics-icon-emoji">👥</div>
+                        <h5 class="card-title mt-3">Пользователи</h5>
+                        <p class="card-text statistics-number" id="users-count">Загрузка...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <div class="card statistics-card">
+                    <div class="card-body text-center">
+                        <div class="statistics-icon-emoji">⏱️</div>
+                        <h5 class="card-title mt-3">Время работы</h5>
+                        <p class="card-text statistics-number" id="uptime">Загрузка...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <div class="card statistics-card">
+                    <div class="card-body text-center">
+                        <div class="statistics-icon-emoji">⚡</div>
+                        <h5 class="card-title mt-3">Среднее время ответа</h5>
+                        <p class="card-text statistics-number" id="response-time">Загрузка...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card statistics-card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Статус работы</h5>
+                        <p class="card-text statistics-status" id="service-status">
+                            <span class="status-indicator status-online">Онлайн</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Загрузка статистики с API
+    async function loadStatistics() {
+        try {
+            const response = await fetch('/api/statistics');
+            const data = await response.json();
+            
+            // Обновляем количество пользователей
+            document.getElementById('users-count').textContent = data.users_count + ' пользователей';
+            
+            // Обновляем uptime
+            const uptime = data.uptime;
+            let uptimeText = '';
+            if (uptime.days > 0) {
+                uptimeText += uptime.days + ' дн. ';
+            }
+            if (uptime.hours > 0) {
+                uptimeText += uptime.hours + ' ч. ';
+            }
+            uptimeText += uptime.minutes + ' мин.';
+            document.getElementById('uptime').textContent = uptimeText;
+            
+            // Обновляем время ответа
+            document.getElementById('response-time').textContent = data.average_response_time_ms + ' мс';
+            
+            // Обновляем статус
+            const statusElement = document.getElementById('service-status');
+            if (data.status === 'online') {
+                statusElement.innerHTML = '<span class="status-indicator status-online">Онлайн</span>';
+            } else {
+                statusElement.innerHTML = '<span class="status-indicator status-offline">Офлайн</span>';
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки статистики:', error);
+            document.getElementById('users-count').textContent = 'Ошибка';
+            document.getElementById('uptime').textContent = 'Ошибка';
+            document.getElementById('response-time').textContent = 'Ошибка';
+        }
+    }
+    
+    // Загружаем при загрузке страницы
+    document.addEventListener('DOMContentLoaded', loadStatistics);
+</script>
 
 {% endblock %}

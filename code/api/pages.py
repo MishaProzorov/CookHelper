@@ -41,3 +41,9 @@ def logout():
     response = RedirectResponse(url="/", status_code=302)
     security.unset_access_cookies(response)
     return response
+
+@router.get("/michelin", response_class=HTMLResponse)
+async def michelin(request: Request, db: Session = Depends(get_db)):
+    user = await service.current_user(request, db)
+    return templates.TemplateResponse("michelin.html", {"request":request, "active": "michelin", "user": user})
+
