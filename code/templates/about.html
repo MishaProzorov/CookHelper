@@ -8,21 +8,42 @@
 <!-- Убираем align-items-center, если хотим, чтобы текст был сверху, а не в середине экрана -->
 <div class="row align-items-center">
     <!-- Увеличиваем колонку до 12, чтобы тексту было просторно -->
-    <div class="col-lg-6 text-start page-title">
-        <h3 class="page-about-low mb-0">страница о</h3>
-        <h1 class="page-about-mega mt-1">НАС</h1>
+    <div class="col-lg-12 text-start page-title">
+        <h3 class="text-head-max">Страница о Нас</h3>
+        <h3 class="text-head-min">Мы всегда открыты для общения</h3>
     </div>
 </div>
 <div class="line"></div>
 <div class="row">
-    <h3 class="page-about-mini">Cook Helper</h3>
-    <p> - это учебный веб‑проект, созданный в рамках практики по веб‑разработке. Приложение разрабатывалось как тренировка в работе с 
-        современными технологиями: серверной логикой, базами данных, пользовательским интерфейсом и интеграцией внешних сервисов. 
+    <h3 class="col3 mb-3">Что такое Cook Helper?</h3>
+    <p> <span class="text-mini"><span class="text-mini-col">CookHelper</span> - это <span class="text-mini-colred">учебный веб‑проект</span>, созданный в рамках практики по веб‑разработке. Приложение разрабатывалось как тренировка в работе с 
+        современными технологиями: <span class="text-mini-col">серверной логикой, базами данных, пользовательским интерфейсом и интеграцией внешних сервисов.</span> 
         Проект служит площадкой для отработки архитектурных решений, построения удобной структуры страниц, настройки поиска и обработки данных. 
-        CookHelper не претендует на коммерческое использование — его цель показать, как учебная идея может превратиться в 
-        полноценное, аккуратно оформленное веб‑приложение.
+        <span class="text-mini-colred">CookHelper не претендует на коммерческое использование</span> — его цель показать, как учебная идея может превратиться в 
+        полноценное, аккуратно оформленное веб‑приложение.</span>
     </p>
 </div>
+<div class="row align-items-center">
+    <div class="col-lg-5 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/person.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-7">
+        <h3 class="text-head-min"><span class=col2>CookHelper</span> поможет вам создавать 
+            <span class="text-head-max">кулинарные шедевры</span> для себя и своих близких не выходя из дома и используя доступные ингредиенты
+        </h3>
+    </div>
+</div>
+<div class="row align-items-center mb-5">
+    <div class="col-lg-7">
+        <h3 class="text-head-min"><span class="col2">CookHelper - приложения для любого кулинара</span>, начинающего или опытного.
+            <span class="text-head-max">Оно простое в использовании</span>, поэтому им может пользоваться даже ребенок.
+        </h3>
+    </div>
+    <div class="col-lg-5 d-flex justify-content-center my-4">
+        <img src="{{ url_for('static', path='img/person2.png') }}" class="flexed-img">
+    </div>
+</div>
+
 <div class="row align-items-center g-4 my-5">
     <div class="col-lg-4">
         <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
@@ -39,17 +60,18 @@
     </div>
 
     <div class="col-lg-4">
-        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden bg-light d-flex align-items-center justify-content-center">
-             <span class="text-muted h1">+</span>
+        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+            <img src="{{ url_for('static', path='img/stack.png') }}" class="img-fluid w-100 about-img" alt="Developers">
+            <div class="card-label">Стек технологий</div>
         </div>
     </div>
 </div>
 <div class="row align-items-center my-5">
-    <h3 class="page-about-mini">Где нас можно найти?</h3>
-    <p> Мы размещаем наш контент и развиваемся на разных популярных платформах, 
+    <h3 class="col3">Где нас можно найти?</h3>
+    <p> <span class="text-mini">Мы размещаем наш контент и развиваемся на разных популярных платформах, 
         постепенно расширяя присутствие проекта и пробуя новые форматы 
         взаимодействия с пользователями. Это помогает нам экспериментировать, 
-        получать обратную связь и улучшать приложение в процессе обучения и развития.
+        получать обратную связь и улучшать приложение в процессе обучения и развития.</span>
     </p>
 </div>
 <div class="row align-items-center my-5">

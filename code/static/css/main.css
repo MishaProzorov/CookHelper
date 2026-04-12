@@ -442,7 +442,7 @@ p{
     text-align: left !important;
     font-weight: 300;
     font-size: 50px;
-    line-height: 1.4;
+    line-height: 1;
 }
 .margin{
     margin-top: 40px;
@@ -652,4 +652,34 @@ p{
     background-color: #dbdbdb;   
     border-color: #333;     
     transform: translateY(-2px);
+}
+
+.col2{
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1;
+    color:#f6da06; 
+}
+.col3{
+    color:#000000; 
+    font-family: 'Alfa Slab One', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.text-mini{
+    font-weight: 300;
+    font-size: 21px;
+}
+.text-mini-col{
+    color:#000000;
+    font-weight: 800;
+    font-size: 21px;
+}
+
+.text-mini-colred{
+    color:#ff0000;
+    font-weight: 800;
+    font-size: 21px;
 }
