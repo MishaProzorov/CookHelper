@@ -17,6 +17,11 @@ config = AuthXConfig()
 config.JWT_SECRET_KEY = "SECRET_KEY"
 config.JWT_ACCESS_COOKIE_NAME = "my_token"
 config.JWT_TOKEN_LOCATION = ["cookies"]
+config.JWT_COOKIE_CSRF_PROTECT = False
+config.JWT_COOKIE_SAMESITE = "lax"
+config.JWT_COOKIE_SECURE = False
+config.JWT_COOKIE_HTTP_ONLY = True
+config.JWT_COOKIE_MAX_AGE = None  # Сессионный cookie — удаляется при закрытии браузера
 security = AuthX(config=config)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))

@@ -5,6 +5,7 @@ from database import engine, Base
 from api import auth_user, pages
 from api import recipes
 from api import statistics
+from api import reviews
 from api.statistics import MetricsMiddleware
 
 app = FastAPI()
@@ -21,3 +22,4 @@ app.include_router(auth_user.router)
 app.include_router(pages.router)
 app.include_router(recipes.router)
 app.include_router(statistics.router)
+app.include_router(reviews.router)

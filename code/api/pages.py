@@ -47,3 +47,18 @@ async def michelin(request: Request, db: Session = Depends(get_db)):
     user = await service.current_user(request, db)
     return templates.TemplateResponse("michelin.html", {"request":request, "active": "michelin", "user": user})
 
+@router.get("/reviews", response_class=HTMLResponse)
+async def reviews(request: Request, db: Session = Depends(get_db)):
+    user = await service.current_user(request, db)
+    return templates.TemplateResponse("reviews.html", {"request":request, "active": "reviews", "user": user})
+
+@router.get("/developers", response_class=HTMLResponse)
+async def developers(request: Request, db: Session = Depends(get_db)):
+    user = await service.current_user(request, db)
+    return templates.TemplateResponse("developers.html", {"request":request, "active": "developers", "user": user})
+
+@router.get("/techno", response_class=HTMLResponse)
+async def techno(request: Request, db: Session = Depends(get_db)):
+    user = await service.current_user(request, db)
+    return templates.TemplateResponse("techno.html", {"request":request, "active": "techno", "user": user})
+

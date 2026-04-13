@@ -2,25 +2,27 @@
 {% block title %}Вход{% endblock %}
 
 {% block content %}
-<div class="modal-content rounded-4 shadow" style="max-width: 500px; margin: 0 auto;"> 
-    <div class="modal-header p-5 pb-4 border-bottom-0"> 
-        <h1 class="fw-bold mb-0 fs-2">Log in</h1> 
-    </div> 
-    <div class="modal-body p-5 pt-0"> 
-        
-        <form action="/login" method="post"> 
-            <div class="form-floating mb-3"> 
-                <input type="email" name="gmail" class="form-control rounded-3" id="loginInput" placeholder="name@example.com" required> 
-                <label for="loginInput">Email address</label> 
-            </div> 
-            <div class="form-floating mb-3"> 
-                <input type="password" name="password" class="form-control rounded-3" id="loginPassword" placeholder="Password" required> 
-                <label for="loginPassword">Password</label> 
-            </div> 
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Log in</button> 
-            <hr class="my-4"> 
-            <p class="text-center">Нет аккаунта? <a href="{{ url_for('registr') }}">Зарегистрироваться</a></p>
-        </form> 
-    </div> 
+
+<div class="container d-flex justify-content-center align-items-center py-5" style="min-height: 80vh;">
+    <div class="card rounded-4 shadow border-0" style="max-width: 450px; width: 100%;"> 
+        <div class="card-header p-5 pb-4 border-bottom-0 bg-white rounded-top-4"> 
+            <h1 class="fw-bold mb-0 fs-2 text-center">Log in</h1> 
+        </div> 
+        <div class="card-body p-5 pt-0"> 
+            <form action="/login" method="post"> 
+                <div class="form-floating mb-3"> 
+                    <input type="email" name="gmail" class="form-control rounded-3" id="loginInput" placeholder="name@example.com" required> 
+                    <label for="loginInput">Email address</label> 
+                </div> 
+                <div class="form-floating mb-3"> 
+                    <input type="password" name="password" class="form-control rounded-3" id="loginPassword" placeholder="Password" required> 
+                    <label for="loginPassword">Password</label> 
+                </div> 
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Log in</button> 
+                <hr class="my-4"> 
+                <p class="text-center mb-0">Нет аккаунта? <a href="{{ url_for('registr') }}">Зарегистрироваться</a></p>
+            </form> 
+        </div> 
+    </div>
 </div>
 {% endblock %}
