@@ -3,7 +3,135 @@
 {% block title %}Стек технологий{% endblock %}
 
 {% block content %}
-
-
-
+<div class="row align-items-center">
+    <div class="col-lg-12 text-start page-title">
+        <h3 class="text-head-max">Стек технологий</h3>
+        <h3 class="text-head-min">Поговорим о тех технологиях, которые использовали при создании</h3>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack1.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="col2">Бэкенд:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">Python 3.10</span> 
+            — основной язык программирования, на котором написана вся серверная логика приложения.
+            <br>
+            - <span class="text-mini-col">FastAPI</span> 
+            — современный высокопроизводительный веб-фреймворк для построения REST API. 
+            Используется как основа приложения, обеспечивает автоматическую генерацию OpenAPI-документации и валидацию данных.
+            <br>
+            - <span class="text-mini-col">Uvicorn</span> 
+            — ASGI-сервер для запуска FastAPI-приложения. Обеспечивает асинхронную обработку HTTP-запросов.
+        </h3>. 
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-8">
+        <h3 class="col2">База Данных:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">PostgreSQL</span> 
+            — реляционная СУБД для хранения данных пользователей, рецептов, отзывов и метрик.
+            <br>
+            - <span class="text-mini-col">SQLAlchemy</span> 
+            — ORM-библиотека для работы с базой данных на уровне Python-объектов. 
+            Позволяет описывать модели данных как классы и выполнять запросы без написания «сырого» SQL.
+            <br>
+            - <span class="text-mini-col">Psycopg2</span> 
+            — драйвер-адаптер для подключения Python-приложения к PostgreSQL.
+        </h3>. 
+    </div>
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack2.png') }}" class="flexed-img">
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack3.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="col2">Аутентификация и Безопасность:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">AuthX</span> 
+            — библиотека для реализации JWT-аутентификации через cookies. Управляет генерацией и валидацией токенов доступа.
+            <br>
+            - <span class="text-mini-col">Bcrypt</span> 
+            — библиотека для хеширования паролей. Обеспечивает безопасное хранение паролей пользователей в базе данных.
+        </h3>. 
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-8">
+        <h3 class="col2">Шаблоны и Фронтенд:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">Jinja2</span> 
+            — шаблонизатор для рендеринга HTML-страниц на сервере. Используется для генерации динамического контента.
+            <br>
+            - <span class="text-mini-col">HTML/CSS/JavaScript</span> 
+            — клиентская часть интерфейса, обслуживаемая через StaticFiles FastAPI.
+        </h3>. 
+    </div>
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack4.png') }}" class="flexed-img">
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack5.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="col2">Перевод и Локализация:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">Deep Translator</span> 
+            — библиотека для автоматического перевода текста. 
+            Используется для перевода рецептов и ингредиентов с английского на русский язык (интеграция с Spoonacular API).
+        </h3>. 
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-8">
+        <h3 class="col2">Тестирование:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">Pytest</span> 
+            — фреймворк для написания и запуска юнит- и интеграционных тестов.
+            <br>
+            - <span class="text-mini-col">HTTPX</span> 
+            — асинхронный HTTP-клиент для тестирования API-эндпоинтов.
+        </h3>. 
+    </div>
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack6.png') }}" class="flexed-img">
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center my-5">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/stack7.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="col2">Контейнеризация и CI/CD:</h3>
+        <br>
+        <h3 class="text-mini">
+            - <span class="text-mini-col">Docker</span> 
+            — платформа для контейнеризации приложения. Позволяет упаковать приложение со всеми зависимостями в изолированный контейнер.
+            <br>
+            - <span class="text-mini-col">GitHub Actions</span> 
+            — сервис для настройки CI/CD-пайплайна (автоматическая сборка, тестирование и деплой при пуше в репозиторий).
+        </h3>. 
+    </div>
+</div>
 {%  endblock %}
