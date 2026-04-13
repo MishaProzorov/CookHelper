@@ -45,14 +45,24 @@ async def search_random_recipe(db: Session, number: int = 1, lang: str = "ru"):
     cached = db.query(RecipeCache).order_by(func.random()).limit(number).all()
     return [RecipePreview(id=c.id, title=c.title_ru if lang=="ru" else c.title_en, image=c.image) for c in cached]
 
-async def search_recipe_by_name(db: Session, query: str, lang: str = "ru"):
+async def search_recipe_by_name(db: Session, query: str, diet: str = None, recipe_type: str = None, lang: str = "ru"):
     q_en = await translate_text(query, target='en') if bool(re.search('[а-яА-Я]', query)) else query
-    data = await _make_request(f"{BASE_URL}/complexSearch", {"query": q_en, "number": 1})
+
+    # Формируем параметры для Spoonacular API
+    params = {"query": q_en, "number": 20}  # 20 результатов за раз
+    if diet:
+        params["diet"] = diet
+    if recipe_type:
+        params["type"] = recipe_type
+
+    data = await _make_request(f"{BASE_URL}/complexSearch", params)
     if data and data.get("results"):
-        r = data["results"][0]
-        title = await translate_text(r["title"]) if lang == "ru" else r["title"]
-        return [RecipePreview(id=r["id"], title=title, image=r.get("image"))]
-    return None
+        results = []
+        for r in data["results"]:
+            title = await translate_text(r["title"]) if lang == "ru" else r["title"]
+            results.append(RecipePreview(id=r["id"], title=title, image=r.get("image")))
+        return results
+    return []
 
 async def get_recipe_info(db: Session, recipe_id: int, lang: str = "ru"):
     data = await _make_request(f"{BASE_URL}/{recipe_id}/information", {"includeNutrition": "false"})

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query, Request, Depends
+from fastapi.responses import RedirectResponse
 from typing import Optional
 from sqlalchemy.orm import Session
 from database import get_db
@@ -43,7 +44,28 @@ async def search_by_ingredients(request: Request, ingredients: str, db: Session 
     return await recipe_service.search_by_ingredients(db, ingredients, lang=lang)
 
 
-# 4. Ручка для получения полной информации о рецепте (Детальная страница)
+# 4. Ручка для редиректа на рецепт по названию (для кнопок "Перейти к рецепту")
+# Должна быть ДО /{recipe_id}/info, иначе FastAPI посчитает "go" за recipe_id
+@router.get("/go", response_class=RedirectResponse)
+async def go_to_recipe(
+        request: Request,
+        query: str = Query(...),
+        db: Session = Depends(get_db)
+):
+    lang = get_lang(request)
+    # Ищем рецепт по названию
+    results = await recipe_service.search_recipe_by_name(db, query, diet=None, recipe_type=None, lang=lang)
+
+    if results and len(results) > 0:
+        # Перенаправляем на страницу первого найденного рецепта
+        recipe_id = results[0].id
+        return RedirectResponse(url=f"/recipe/{recipe_id}")
+    else:
+        # Если не нашли — редирект на поиск с этим запросом
+        return RedirectResponse(url=f"/search")
+
+
+# 5. Ручка для получения полной информации о рецепте (Детальная страница)
 @router.get("/{recipe_id}/info", response_model=RecipeFull)
 async def get_info(request: Request, recipe_id: int, db: Session = Depends(get_db)):
     lang = get_lang(request)

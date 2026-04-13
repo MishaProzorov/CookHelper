@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+<div class="recipe-detail-page">
+
+    <!-- Кнопка «Назад» -->
+    <a href="/search" class="btn-back mb-4">
+        ← Назад к поиску
+    </a>
+
+    <!-- Заголовок рецепта -->
+    <h1 class="recipe-detail-title">{{ recipe.title }}</h1>
+
+    <!-- Основное изображение -->
+    <div class="recipe-hero-image">
+        {% if recipe.image %}
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-hero-img">
+        {% else %}
+            <div class="recipe-hero-placeholder">🍽️</div>
+        {% endif %}
+    </div>
+
+    <div class="row g-4 mt-2">
+
+        <!-- Левая колонка: ингредиенты -->
+        <div class="col-lg-5">
+            <div class="recipe-section">
+                <h3 class="recipe-section-title">
+                    <span class="section-icon">🥘</span> Ингредиенты
+                </h3>
+                <div class="recipe-ingredients">
+                    {% if recipe.ingredients %}
+                        {% for ingredient in recipe.ingredients.split(',') %}
+                            {% if ingredient.strip() %}
+                                <div class="ingredient-item">
+                                    <span class="ingredient-dot"></span>
+                                    <span>{{ ingredient.strip() }}</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">Ингредиенты не указаны</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка: инструкции -->
+        <div class="col-lg-7">
+            <div class="recipe-section">
+                <h3 class="recipe-section-title">
+                    <span class="section-icon">📝</span> Приготовление
+                </h3>
+                <div class="recipe-instructions">
+                    {% if recipe.instructions %}
+                        {{ recipe.instructions | safe }}
+                    {% else %}
+                        <p class="text-muted">Инструкция не указана</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

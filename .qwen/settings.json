@@ -10,7 +10,11 @@
       "Bash(pip show *)",
       "Bash(python *)",
       "Bash(remove-item *)",
-      "Bash(rmdir *)"
+      "Bash(rmdir *)",
+      "Bash(select-object *)",
+      "Bash(powershell *)",
+      "Bash(out-file *)",
+      "Bash(netstat *)"
     ]
   },
   "$version": 3

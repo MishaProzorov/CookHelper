@@ -2,20 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/libs/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/libs/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}">
         <title>{% block title %}{% endblock %} </title>
     </head>
     <body> 
         {% include '_header.html' %}
         
         <div class="page">
-            <main class="content">{% block content %}{% endblock %}</main>
+            <!-- Добавляем container-fluid, чтобы сетка внутри работала правильно -->
+            <main class="content container-fluid">
+                {% block content %}{% endblock %}
+            </main>
             {% include '_footer.html' %}
         </div>
 
         <script src="{{ url_for('static', path='js/libs/bootstrap.min.js')}}"></script>
         <script src="{{ url_for('static', path='js/main.js')}}"></script>
-                        
+        {% if active == 'search' %}<script src="{{ url_for('static', path='js/search.js')}}"></script>{% endif %}
+
     </body>
 </html> 

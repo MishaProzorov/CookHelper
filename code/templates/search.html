@@ -1,5 +1,96 @@
 {% extends 'base.html' %}
 
-{% block title %}Поиск{% endblock %}
+{% block title %}Поиск рецептов{% endblock %}
 
-{% block content %}<h1>Поиск Рецептов</h1>{% endblock %}
+{% block content %}
+<div class="search-page">
+    <!-- Заголовок -->
+    <h1 class="search-title">Поиск рецептов</h1>
+
+    <!-- Основной поиск -->
+    <div class="search-main mb-4">
+        <div class="input-group">
+            <input type="text" id="searchInput" class="form-control form-control-lg custom-search"
+                   placeholder="Введите название рецепта..." aria-label="Поиск рецептов">
+            <button class="btn btn-success btn-lg px-4" id="searchBtn" type="button">
+                Найти
+            </button>
+        </div>
+    </div>
+
+    <!-- Основная область: фильтры + результаты -->
+    <div class="row g-4">
+
+        <!-- Левая колонка: фильтры -->
+        <div class="col-lg-3 col-md-4">
+            <div class="filters-panel">
+                <h5 class="filters-title">Фильтры</h5>
+
+                <!-- Тип блюда (recipe_type) -->
+                <div class="filter-group">
+                    <label class="filter-label">Тип блюда</label>
+                    <select id="recipeTypeFilter" class="form-select form-select-sm custom-select-filter">
+                        <option value="">Все</option>
+                        <option value="main course">Основное блюдо</option>
+                        <option value="breakfast">Завтрак</option>
+                        <option value="lunch">Обед</option>
+                        <option value="dinner">Ужин</option>
+                        <option value="dessert">Десерт</option>
+                        <option value="snack">Закуска</option>
+                        <option value="soup">Суп</option>
+                        <option value="salad">Салат</option>
+                        <option value="appetizer">Аперитив</option>
+                        <option value="beverage">Напиток</option>
+                        <option value="bread">Выпечка</option>
+                    </select>
+                </div>
+
+                <!-- Диета (diet) -->
+                <div class="filter-group">
+                    <label class="filter-label">Диета</label>
+                    <select id="dietFilter" class="form-select form-select-sm custom-select-filter">
+                        <option value="">Любая</option>
+                        <option value="vegetarian">Вегетарианская</option>
+                        <option value="vegan">Веганская</option>
+                        <option value="gluten free">Без глютена</option>
+                        <option value="ketogenic">Кетогенная</option>
+                        <option value="paleolithic">Палео</option>
+                        <option value="primal">Примал</option>
+                        <option value="low fodmap">Low FODMAP</option>
+                        <option value="whole 30">Whole 30</option>
+                        <option value="pescetarian">Пескетарианская</option>
+                    </select>
+                </div>
+
+                <!-- Кнопка сброса -->
+                <div class="filter-group mt-4">
+                    <button class="btn btn-outline-secondary btn-sm w-100" id="resetFiltersBtn">
+                        Сбросить фильтры
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка: результаты -->
+        <div class="col-lg-9 col-md-8">
+            <!-- Состояние загрузки -->
+            <div id="loadingIndicator" class="d-none text-center py-5">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Загрузка...</span>
+                </div>
+                <p class="mt-3 text-muted">Ищем рецепты...</p>
+            </div>
+
+            <!-- Сообщение "ничего не найдено" -->
+            <div id="noResults" class="d-none text-center py-5">
+                <p class="text-muted fs-5">Рецепты не найдены. Попробуйте изменить запрос или фильтры.</p>
+            </div>
+
+            <!-- Сетка карточек рецептов -->
+            <div id="recipesGrid" class="row g-3">
+                <!-- Карточки будут добавлены динамически через JS -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

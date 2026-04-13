@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlalchemy.orm import Session
 from database import get_db
 from services import user_service as service
+from services.recipe_service import get_recipe_info
 from auth import templates, security
 
 router = APIRouter()
@@ -84,16 +85,16 @@ async def recipe_detail_page(request: Request, recipe_id: int, db: Session = Dep
     # 1. Получаем язык
     lang = request.cookies.get("preferred_language", "ru")
 
-    # 2. Вызываем твой сервис (он сам решит: брать из API или из Базы)
-    recipe = await service.get_recipe_info(db, recipe_id, lang=lang)
+    # 2. Вызываем сервис рецептов напрямую
+    recipe = await get_recipe_info(db, recipe_id, lang=lang)
 
     if not recipe:
         raise HTTPException(status_code=404, detail="Рецепт не найден в базе или в API")
 
-    # 3. Отдаем HTML-страницу (пусть друг создаст файл recipe_info.html)
+    # 3. Отдаем HTML-страницу
     return templates.TemplateResponse("recipe_info.html", {
         "request": request,
         "active": "search",
         "user": await service.current_user(request, db),
-        "recipe": recipe  # Прокидываем объект RecipeFull со всеми данными
+        "recipe": recipe
     })
