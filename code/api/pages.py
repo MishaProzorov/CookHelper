@@ -47,3 +47,38 @@ async def michelin(request: Request, db: Session = Depends(get_db)):
     user = await service.current_user(request, db)
     return templates.TemplateResponse("michelin.html", {"request":request, "active": "michelin", "user": user})
 
+
+
+@router.get("/set-lang/{lang}")
+async def set_language(lang: str, request: Request):
+    target_lang = "ru" if lang == "ru" else "en"
+
+    # Редирект на ту страницу, с которой пришел пользователь (или на главную)
+    referer = request.headers.get("referer", "/")
+    response = RedirectResponse(url=referer)
+
+    # Ставим куку на 1 год
+    response.set_cookie(key="preferred_language", value=target_lang, max_age=31536000)
+    return response
+
+
+# Добавь в api/pages.py
+
+@router.get("/recipe/{recipe_id}", response_class=HTMLResponse)
+async def recipe_detail_page(request: Request, recipe_id: int, db: Session = Depends(get_db)):
+    # 1. Получаем язык
+    lang = request.cookies.get("preferred_language", "ru")
+
+    # 2. Вызываем твой сервис (он сам решит: брать из API или из Базы)
+    recipe = await service.get_recipe_info(db, recipe_id, lang=lang)
+
+    if not recipe:
+        raise HTTPException(status_code=404, detail="Рецепт не найден в базе или в API")
+
+    # 3. Отдаем HTML-страницу (пусть друг создаст файл recipe_info.html)
+    return templates.TemplateResponse("recipe_info.html", {
+        "request": request,
+        "active": "search",
+        "user": await service.current_user(request, db),
+        "recipe": recipe  # Прокидываем объект RecipeFull со всеми данными
+    })

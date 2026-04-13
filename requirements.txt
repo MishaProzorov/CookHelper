@@ -9,3 +9,4 @@ bcrypt
 httpx
 pytest
 pytest-asyncio
+deep-translator
