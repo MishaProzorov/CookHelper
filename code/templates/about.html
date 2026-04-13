@@ -46,24 +46,30 @@
 
 <div class="row align-items-center g-4 my-5">
     <div class="col-lg-4">
-        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
-            <img src="{{ url_for('static', path='img/meaning.png') }}" class="img-fluid w-100 about-img" alt="Meaning">
-            <div class="card-label">Отзывы</div>
-        </div>
+        <a href="{{ url_for('reviews') }}" >
+            <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+                <img src="{{ url_for('static', path='img/meaning.png') }}" class="img-fluid w-100 about-img" alt="Meaning">
+                <div class="card-label">Отзывы</div>
+            </div>
+        </a>
     </div>
 
     <div class="col-lg-4">
-        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
-            <img src="{{ url_for('static', path='img/developer.jpg') }}" class="img-fluid w-100 about-img" alt="Developers">
-            <div class="card-label">Разработчики</div>
-        </div>
+        <a href="{{ url_for('developers') }}" >
+            <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+                <img src="{{ url_for('static', path='img/developer.jpg') }}" class="img-fluid w-100 about-img" alt="Developers">
+                <div class="card-label">Разработчики</div>
+            </div>
+        </a>
     </div>
 
     <div class="col-lg-4">
-        <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
-            <img src="{{ url_for('static', path='img/stack.png') }}" class="img-fluid w-100 about-img" alt="Developers">
-            <div class="card-label">Стек технологий</div>
-        </div>
+        <a href="{{ url_for('techno') }}" >
+            <div class="about-card-wrapper shadow-lg rounded-4 overflow-hidden">
+                <img src="{{ url_for('static', path='img/stack.png') }}" class="img-fluid w-100 about-img" alt="Developers">
+                <div class="card-label">Стек технологий</div>
+            </div>
+        </a>
     </div>
 </div>
 <div class="row align-items-center my-5">

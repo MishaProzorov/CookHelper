@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(taskkill *)",
+      "Bash(uvicorn *)",
+      "Bash(curl *)",
+      "Bash(start *)",
+      "Bash(timeout *)",
+      "Bash(findstr *)",
+      "Bash(pip show *)",
+      "Bash(python *)"
+    ]
+  },
+  "$version": 3
+}

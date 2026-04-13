@@ -7,7 +7,7 @@ class UserCreate (BaseModel):
     gmail:str
 
 class UserClass(BaseModel):
-    id: int
+    id: int 
     gmail: str
 
     class Config:
@@ -24,6 +24,28 @@ class RecipePreview(BaseModel):
     id: int
     title: str
     image: Optional[str] = None
+class ReviewCreate(BaseModel):
+    text: str
+    rating: int
+
+class ReviewResponse(BaseModel):
+    id: int
+    text: str
+    rating: int
+    created_at: datetime
+    author_id: int
+    author_gmail: str
+
+    class Config:
+        from_attributes = True
+
+# class UserClass(UserBase):
+#     id: int
+#     name: Optional[str] = None
+#     phone: Optional[str] = None
+
+#     class Config:
+#         from_attributes = True
 
 class RecipeFull(RecipePreview):
     ingredients: str  # Все ингредиенты одной строкой

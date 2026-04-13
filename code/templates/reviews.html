@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <h3 class="text-head-max">Отзывы</h3>
+    <h3 class="text-head-min">Пользователей о нашем приложении</h3>
+    <div class="line mt-5"></div>
+    {% if user %}
+    <!-- Форма добавления отзыва (только для авторизованных) -->
+    <div class="card mb-5">
+        <div class="card-body">
+            <h5 class="card-title">Оставить отзыв</h5>
+            <form id="reviewForm" action="/api/reviews" method="POST">
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Оценка (1-5)</label>
+                    <select class="form-select" id="rating" name="rating" required>
+                        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4)</option>
+                        <option value="3">⭐⭐⭐ (3)</option>
+                        <option value="2">⭐⭐ (2)</option>
+                        <option value="1">⭐ (1)</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Ваш отзыв</label>
+                    <textarea class="form-control" id="text" name="text" rows="4" required placeholder="Напишите ваш отзыв..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <p>Чтобы оставить отзыв, пожалуйста, <a href="/login">войдите</a> или <a href="/registration">зарегистрируйтесь</a>.</p>
+    </div>
+    {% endif %}
+    
+    <!-- Список отзывов -->
+    <div id="reviewsList">
+        <h3>Все отзывы</h3>
+        <div class="row" id="reviewsContainer">
+            <!-- Отзывы будут загружены здесь через JavaScript -->
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', path='js/reviews.js') }}"></script>
+{% endblock %}
