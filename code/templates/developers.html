@@ -3,7 +3,46 @@
 {% block title %}Разработчи{% endblock %}
 
 {% block content %}
-
-
-
+<div class="row align-items-center">
+    <div class="col-lg-12 text-start page-title">
+        <h3 class="text-head-max">Разработчики приложения</h3>
+        <h3 class="text-head-min">Поговорим немного о создателях</h3>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row align-items-center">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/developer1.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="text-head-min"><span class=col2>MishaProzorov</span> - разработчик 
+            <span class="text-head-max">frontend части приложения</span>. Специализируется на 
+            работе с компонентами, стилями и пользовательским взаимодействием.
+        </h3>
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center">
+    <div class="col-lg-8">
+        <h3 class="text-head-min"><span class=col2>NikitaStuk</span> - разработчик 
+            <span class="text-head-max">backend части приложения</span>. Создаёт серверную часть приложения, 
+            отвечает за обработку данных и интеграцию сервисов.
+        </h3>   
+    </div>
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/developer2.png') }}" class="flexed-img">
+    </div>
+</div>
+<div class="line mt-5"></div>
+<div class="row align-items-center mb-5">
+    <div class="col-lg-4 d-flex justify-content-center">
+        <img src="{{ url_for('static', path='img/developer3.png') }}" class="flexed-img">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="text-head-min"><span class=col2>DimaMilenkevich</span> -  
+            <span class="text-head-max">fullstack разработчик</span>. Создаёт интерфейсы и серверную логику, 
+            объединяя визуальную часть и архитектуру приложения.
+        </h3>
+    </div>
+</div>
 {%  endblock %}

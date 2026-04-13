@@ -8,7 +8,9 @@
       "Bash(timeout *)",
       "Bash(findstr *)",
       "Bash(pip show *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(remove-item *)",
+      "Bash(rmdir *)"
     ]
   },
   "$version": 3
