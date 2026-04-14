@@ -685,9 +685,6 @@ p{
     font-size: 21px;
 }
 
-/* =========================== */
-/* СТРАНИЦА ПОИСКА РЕЦЕПТОВ    */
-/* =========================== */
 
 .search-page {
     color: #ffffff;
@@ -707,8 +704,8 @@ p{
 }
 
 .search-main .custom-search {
-    background-color: #1a1a1a !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
     border: 2px solid #333 !important;
     border-right: none !important;
     border-radius: 12px 0 0 12px !important;
@@ -721,14 +718,13 @@ p{
 }
 
 .search-main .custom-search:focus {
-    background-color: #222 !important;
-    border-color: #0fcd25 !important;
-    box-shadow: 0 0 0 3px rgba(15, 205, 37, 0.2);
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
 }
 
 .search-main .btn-success {
-    background-color: #0fcd25;
-    border: 2px solid #0fcd25;
+    background-color: #b6b6b6;
+    border: 2px solid #000000;
     border-radius: 0 12px 12px 0 !important;
     color: #000;
     font-weight: 600;
@@ -736,10 +732,9 @@ p{
 }
 
 .search-main .btn-success:hover {
-    background-color: #52d737;
-    border-color: #52d737;
+    background-color: #7f7f7f;
+    border-color: #000000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(15, 205, 37, 0.4);
 }
 
 /* Панель фильтров */
@@ -758,7 +753,7 @@ p{
     color: #ffffff;
     margin-bottom: 24px;
     padding-bottom: 12px;
-    border-bottom: 2px solid #0fcd25;
+    border-bottom: 2px solid #bebebe;
 }
 
 .filter-group {
@@ -787,8 +782,7 @@ p{
 }
 
 .custom-select-filter:focus {
-    border-color: #0fcd25 !important;
-    box-shadow: 0 0 0 3px rgba(15, 205, 37, 0.2);
+    border-color: #797979 !important;
     background-color: #222 !important;
 }
 
@@ -912,10 +906,6 @@ p{
         height: 150px;
     }
 }
-
-/* =========================== */
-/* СТРАНИЦА РЕЦЕПТА            */
-/* =========================== */
 
 .recipe-detail-page {
     color: #ffffff;
@@ -1097,10 +1087,6 @@ p{
     }
 }
 
-/* =========================== */
-/* FORM VALIDATION             */
-/* =========================== */
-
 .form-control.is-invalid {
     border-color: #dc3545 !important;
     background-image: none !important;
@@ -1133,13 +1119,10 @@ p{
     cursor: not-allowed;
 }
 
-/* =========================== */
-/* ACCESSIBILITY               */
-/* =========================== */
 
 /* Видимый фокус при навигации с клавиатуры (WCAG 2.0) */
 *:focus-visible {
-    outline: 3px solid #0fcd25 !important;
+    outline: 2px solid #888 !important;
     outline-offset: 2px !important;
     border-radius: 4px;
 }
@@ -1169,10 +1152,6 @@ p{
 .skip-link:focus {
     top: 0;
 }
-
-/* =========================== */
-/* ХЛЕБНЫЕ КРОШКИ              */
-/* =========================== */
 
 .recipe-breadcrumbs {
     padding: 0;
@@ -1219,10 +1198,6 @@ p{
     font-weight: 500;
 }
 
-/* =========================== */
-/* 404 СТРАНИЦА                */
-/* =========================== */
-
 .error-page {
     display: flex;
     align-items: center;
@@ -1241,10 +1216,9 @@ p{
     font-family: 'Alfa Slab One', sans-serif;
     font-size: 120px;
     font-weight: 800;
-    color: #0fcd25;
+    color: #000000;
     line-height: 1;
     margin-bottom: 20px;
-    text-shadow: 0 0 40px rgba(15, 205, 37, 0.3);
 }
 
 .error-title {
@@ -1258,7 +1232,7 @@ p{
 .error-description {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    color: #aaa;
+    color: #000000;
     line-height: 1.6;
     margin-bottom: 32px;
 }
@@ -1285,27 +1259,26 @@ p{
 }
 
 .btn-error-primary {
-    background-color: #0fcd25;
+    background-color: #d6d6d6;
     color: #000;
-    border-color: #0fcd25;
+    border-color: #000000;
 }
 
 .btn-error-primary:hover {
-    background-color: #52d737;
-    border-color: #52d737;
+    background-color: #9f9f9f;
+    border-color: #333;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(15, 205, 37, 0.4);
 }
 
 .btn-error-secondary {
-    background-color: transparent;
-    color: #ccc;
-    border-color: #444;
+    background-color: #d6d6d6;
+    color: #000000;
+    border-color: #000000;
 }
 
 .btn-error-secondary:hover {
-    border-color: #0fcd25;
-    color: #ffffff;
+    background-color: #9f9f9f;
+    color: #333;
     transform: translateY(-2px);
 }
 
