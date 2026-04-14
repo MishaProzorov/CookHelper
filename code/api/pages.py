@@ -30,12 +30,14 @@ async def help(request: Request, db: Session = Depends(get_db)):
 
 @router.get("/registration", response_class=HTMLResponse)
 def registr(request: Request):
-    return templates.TemplateResponse("registration.html", {"request": request})
+    error = request.query_params.get("error")
+    return templates.TemplateResponse("registration.html", {"request": request, "error": error})
 
 @router.get("/login", response_class=HTMLResponse)
 async def login(request: Request, db: Session = Depends(get_db)):
     user = await service.current_user(request, db)
-    return templates.TemplateResponse("login.html", {"request": request, "active": "login", "user": user})
+    error = request.query_params.get("error")
+    return templates.TemplateResponse("login.html", {"request": request, "active": "login", "user": user, "error": error})
 
 @router.get("/logout")
 def logout():

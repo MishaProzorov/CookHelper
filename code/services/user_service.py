@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 from models import User
 from database import get_db
 from auth import get_password_hashe, verify_password, security
-from schemas import UserCreate
 
 
 async def current_user(request: Request, db: Session = Depends(get_db)):
@@ -49,34 +48,3 @@ def login_user(request: Request, gmail: str = Form(...), password: str = Form(..
     response = RedirectResponse(url="/", status_code=302)
     security.set_access_cookies(token, response)
     return response
-
-
-def return_user(db: Session = Depends(get_db)):
-    return db.query(User).all()
-
-
-def return_one_user(id: int, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == id).first()
-    if user is None:
-        raise HTTPException(status_code=404, detail="Нет такого пользователя (id не существует)")
-    return user
-
-
-def delete_user(id: int, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == id).first()
-    if user is None:
-        raise HTTPException(status_code=404, detail="Невозможно удалить пользователя.")
-    db.delete(user)
-    db.commit()
-    return user
-
-
-def change_user(id: int, new: UserCreate, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == id).first()
-    if user is None:
-        raise HTTPException(status_code=404, detail="Пользователя с таким id не существует")
-    user.hashed_password = new.password
-    user.gmail = new.gmail
-    db.commit()
-    db.refresh(user)
-    return user

@@ -1,29 +1,32 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request, Form
+from fastapi.responses import RedirectResponse
 from services import user_service as service
-from schemas import UserClass
+from database import get_db
 
 router = APIRouter()
 
 @router.post("/registration")
-def creat_user(res = Depends(service.creat_user)):
-    return res
+async def creat_user(
+    request: Request,
+    gmail: str = Form(...),
+    password: str = Form(...),
+    db = Depends(get_db)
+):
+    try:
+        return service.creat_user(request, gmail, password, db)
+    except Exception as e:
+        error_msg = str(e.detail) if hasattr(e, 'detail') else "Ошибка регистрации"
+        return RedirectResponse(url=f"/registration?error={error_msg}", status_code=302)
 
 @router.post("/login")
-def login_user(res = Depends(service.login_user)):
-    return res
-
-@router.get("/registration/", response_model=list[UserClass])
-def return_user(res = Depends(service.return_user)):
-    return res
-
-@router.get("/registration/{id}", response_model=UserClass)
-def return_one_user(res = Depends(service.return_one_user)):
-    return res
-
-@router.delete("/registration/{id}")
-def delete_user(res = Depends(service.delete_user)):
-    return res
-
-@router.put("/registration/{id}")
-def change_user(res = Depends(service.change_user)):
-    return res
+async def login_user(
+    request: Request,
+    gmail: str = Form(...),
+    password: str = Form(...),
+    db = Depends(get_db)
+):
+    try:
+        return service.login_user(request, gmail, password, db)
+    except Exception as e:
+        error_msg = str(e.detail) if hasattr(e, 'detail') else "Ошибка входа"
+        return RedirectResponse(url=f"/login?error={error_msg}", status_code=302)

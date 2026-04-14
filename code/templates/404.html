@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Страница не найдена{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-content">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Страница не найдена</h2>
+        <p class="error-description">
+            Рецепт, который вы искали, не найден или был перемещён.
+            Возможно, стоит попробовать поискать снова.
+        </p>
+        <div class="error-actions">
+            <a href="/search" class="btn-error btn-error-primary">
+                🔍 Перейти к поиску
+            </a>
+            <a href="/" class="btn-error btn-error-secondary">
+                🏠 На главную
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

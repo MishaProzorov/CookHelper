@@ -3,35 +3,52 @@
 
 {% block content %}
 <div class="container">
-    <!-- row с высотой 80% экрана и центрированием -->
     <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="col-11 col-sm-8 col-md-6 col-lg-4">
-            
-            <!-- Белый блок-карточка -->
+
             <div class="card border-0 shadow-lg rounded-4">
                 <div class="card-body p-4 p-md-5">
-                    
+
                     <div class="text-center mb-4">
                         <h1 class="fw-bold fs-2">Sign up</h1>
                         <p class="text-muted">Создайте аккаунт Cook Helper</p>
                     </div>
 
-                    <form action="/registration" method="post">
-                        <!-- Поле Email -->
+                    <!-- Сообщение об ошибке от сервера -->
+                    {% if error %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ error }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+                    </div>
+                    {% endif %}
+
+                    <form id="registerForm" action="/registration" method="post" novalidate>
                         <div class="form-group mb-3">
-                            <label class="form-label small fw-bold">Email address</label>
-                            <input type="email" name="gmail" class="form-control form-control-lg rounded-3" placeholder="name@example.com" required>
+                            <label class="form-label small fw-bold" for="regEmail">Email address</label>
+                            <input type="email" id="regEmail" name="gmail" class="form-control form-control-lg rounded-3"
+                                   placeholder="name@example.com" required autocomplete="email"
+                                   aria-describedby="regEmailHelp">
+                            <div class="invalid-feedback">Введите корректный email</div>
+                            <small id="regEmailHelp" class="form-text text-muted">Будет использоваться для входа</small>
                         </div>
 
-                        <!-- Поле Пароль -->
                         <div class="form-group mb-4">
-                            <label class="form-label small fw-bold">Password</label>
-                            <input type="password" name="password" class="form-control form-control-lg rounded-3" placeholder="Password" required>
+                            <label class="form-label small fw-bold" for="regPassword">Password</label>
+                            <input type="password" id="regPassword" name="password" class="form-control form-control-lg rounded-3"
+                                   placeholder="Минимум 6 символов" required minlength="6" autocomplete="new-password"
+                                   aria-describedby="regPasswordHelp">
+                            <div class="invalid-feedback">Пароль должен содержать минимум 6 символов</div>
+                            <small id="regPasswordHelp" class="form-text text-muted">Минимум 6 символов</small>
                         </div>
 
-                        <!-- Кнопка -->
-                        <button class="btn btn-primary btn-lg w-100 rounded-3 mb-3" type="submit">Sign up</button>
-                        
+                        <button class="btn btn-primary btn-lg w-100 rounded-3 mb-3" type="submit" id="registerBtn">
+                            <span class="btn-text">Sign up</span>
+                            <span class="btn-loader d-none">
+                                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                Создаём аккаунт...
+                            </span>
+                        </button>
+
                         <div class="text-center">
                             <small class="text-muted d-block mb-3">Нажимая кнопку, вы соглашаетесь с правилами.</small>
                             <hr>
@@ -41,8 +58,41 @@
 
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+    const email = document.getElementById('regEmail');
+    const password = document.getElementById('regPassword');
+    const btn = document.getElementById('registerBtn');
+
+    let isValid = true;
+
+    if (!email.value || !email.validity.valid) {
+        email.classList.add('is-invalid');
+        isValid = false;
+    } else {
+        email.classList.remove('is-invalid');
+    }
+
+    if (!password.value || password.value.length < 6) {
+        password.classList.add('is-invalid');
+        isValid = false;
+    } else {
+        password.classList.remove('is-invalid');
+    }
+
+    if (!isValid) {
+        e.preventDefault();
+        return;
+    }
+
+    btn.querySelector('.btn-text').classList.add('d-none');
+    btn.querySelector('.btn-loader').classList.remove('d-none');
+    btn.disabled = true;
+});
+</script>
 {% endblock %}

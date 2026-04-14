@@ -5,8 +5,23 @@
 {% block content %}
 <div class="recipe-detail-page">
 
+    <!-- Навигация: хлебные крошки -->
+    <nav class="recipe-breadcrumbs mb-3" aria-label="Навигация">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+                <a href="/">Главная</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/search">Поиск</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ recipe.title | truncate(40) }}
+            </li>
+        </ol>
+    </nav>
+
     <!-- Кнопка «Назад» -->
-    <a href="/search" class="btn-back mb-4">
+    <a href="/search" class="btn-back mb-4" aria-label="Вернуться к странице поиска">
         ← Назад к поиску
     </a>
 
